@@ -34,13 +34,14 @@ public class MyFileReader {
             InputStream is = new FileInputStream(file);
             new RTFEditorKit().read(is, styledDoc, 0);
             //result = new String(styledDoc.getText(0, styledDoc.getLength()).getBytes("ISO8859_1"));
-            result = new String(styledDoc.getText(0, styledDoc.getLength()).getBytes("utf-8"));
+            result = new String(styledDoc.getText(0, styledDoc.getLength()).getBytes("ISO-8859-1"),"GBK");
             //提取文本，读取中文需要使用ISO8859_1编码，否则会出现乱码
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+        System.out.println(result);
         return result;
     }
 
@@ -52,7 +53,7 @@ public class MyFileReader {
         BufferedReader br = null;
         StringBuffer sb = new StringBuffer();
         try {
-            br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-8"));
+            br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
             String temp = null;
             while ((temp = br.readLine()) != null) {
                 sb.append(temp);

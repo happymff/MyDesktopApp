@@ -3,6 +3,7 @@ package main;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 public class ImageLoadUtil {
@@ -14,12 +15,11 @@ public class ImageLoadUtil {
         BufferedImage image = null;
 
         try {
-            image = ImageIO.read(ImageLoadUtil.class.getResource(path));
+            File imageFile = new File(path);
+            image = ImageIO.read(imageFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return image;
 
     }

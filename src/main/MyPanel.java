@@ -34,7 +34,7 @@ public class MyPanel extends Panel {
 
     static {
         for(int i = 0; i < images.length; i++) {
-            images[i] = ImageLoadUtil.loadImage("/lib/plane" + (i + 1) + ".png");
+            images[i] = ImageLoadUtil.loadImage("/Users/mengfeifei/Desktop/workspace/IDEA_Project/MyDesktopApp/src/Resources/paper_plane" + (i + 1) + ".png");
             images[i].getWidth(null);
 
         }

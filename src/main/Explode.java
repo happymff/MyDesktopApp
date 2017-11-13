@@ -17,7 +17,7 @@ public class Explode {
     //静态加载图片
     static {
         for(int i = 0; i < images.length; i++) {
-            images[i] = ImageLoadUtil.loadImage("/lib/explode/" + (i) + ".gif");
+            images[i] = ImageLoadUtil.loadImage("/Users/mengfeifei/Desktop/workspace/IDEA_Project/MyDesktopApp/src/Resources/explode" + (i) + ".gif");
             //避免Java的懒加载，让它一用到就可直接用，否则可能一开始的一两张图将看不到
             images[i].getHeight(null);
         }

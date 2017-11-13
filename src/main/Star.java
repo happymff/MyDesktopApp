@@ -1,7 +1,22 @@
 package main;
 
+import java.awt.*;
+
 /**
- * Created by mengfeifei on 2017/11/9.
+ * 行星的抽象类
+ * @author may
+ *
  */
 public interface Star {
+
+    public int getX();
+
+    public int getY();
+
+    public int getWidth();
+
+    public int getHeight();
+
+    public void draw(Graphics g);
+
 }

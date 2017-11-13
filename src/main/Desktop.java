@@ -131,6 +131,12 @@ public class Desktop extends JFrame {
                         case "panel":
                             new PanelGame();
                             break;
+                        case "sunModel":
+//                            SunModel sunModel = new SunModel();
+//                            desktop.add(sunModel);
+//                            sunModel.toFront();
+                            new SunModel();
+                            break;
                     }
                     button.setContentAreaFilled(false);
                     count=0;

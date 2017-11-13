@@ -13,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by mengfeifei on 2017/11/9.
@@ -23,7 +25,7 @@ public class PanelGame extends Frame {
     private List<MyPanel> panels = new ArrayList<MyPanel>();
     private List<Shell> shells = new ArrayList<Shell>();
     private Random random = new Random();
-    private static Image image = ImageLoadUtil.loadImage();
+    private static Image image = ImageLoadUtil.loadImage("/Users/mengfeifei/Desktop/workspace/IDEA_Project/MyDesktopApp/src/Resources/rapeFlower.jpg");
     private BufferedImage buffImage =new BufferedImage(500,500,BufferedImage.TYPE_INT_RGB);
     private List<Explode> explodes = new ArrayList<Explode>();
     public int killEnemyCount =0;
@@ -33,14 +35,16 @@ public class PanelGame extends Frame {
         this.setLocation(300,100);
         this.addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosed(WindowEvent e) {
+            public void windowClosing(WindowEvent e) {
                 PanelGame.this.dispose();
             }
         });
         this.addKeyListener(new keyCtrl());
         this.createGoodPanels(1);
         this.setVisible(true);
-        new Thread(new MyThread().start());
+        ExecutorService service = Executors.newFixedThreadPool(1);
+        service.execute(new MyThread());
+        //new Thread(new MyThread().start());
     }
     public void createPanels(int num){
         for (int i = 0; i < num; i++){
